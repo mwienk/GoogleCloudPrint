@@ -4,9 +4,9 @@ package th.co.geniustree.google.cloudprint.api;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-import th.co.geniustree.google.cloudprint.api.util.ResponseUtils;
 import com.google.common.io.ByteStreams;
 import com.google.gson.Gson;
+import th.co.geniustree.google.cloudprint.api.util.ResponseUtils;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -21,7 +21,6 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.binary.Base64;
@@ -106,7 +105,7 @@ public class GoogleCloudPrint {
      * "companyName-applicationName-VersionID".
      * @throws CloudPrintAuthenticationException
      */
-    public void connect(String email, String password, String source) throws CloudPrintAuthenticationException{
+    public void connect(String email, String password, String source) throws CloudPrintAuthenticationException {
         try {
             //Google Cloud Print Service Authen
             authen = new GoogleAuthentication(CLOUD_PRINT_SERVICE);
@@ -317,6 +316,11 @@ public class GoogleCloudPrint {
                 .toString());
 
         return gson.fromJson(new StringReader(response), SearchPrinterResponse.class);
+    }
+
+    public ControlJobResponse getJob(String jobId) throws CloudPrintException, UnsupportedEncodingException {
+        String response = openConnection("/job?jobid=" + jobId + "&output=json");
+        return gson.fromJson(new StringReader(response), ControlJobResponse.class);
     }
 
     /**
@@ -1054,7 +1058,7 @@ public class GoogleCloudPrint {
                 .append("&email=").append(email)
                 .append("&role=").append(RoleShare.APPENDER)
                 .toString());
-        
+
         return gson.fromJson(new StringReader(response), SharePrinterResponse.class);
     }
 
