@@ -318,7 +318,7 @@ public class GoogleCloudPrint {
         return gson.fromJson(new StringReader(response), SearchPrinterResponse.class);
     }
 
-    public ControlJobResponse getJob(String jobId) throws CloudPrintException, UnsupportedEncodingException {
+    public ControlJobResponse getJob(String jobId) throws CloudPrintException {
         String response = openConnection("/job?jobid=" + jobId + "&output=json");
         return gson.fromJson(new StringReader(response), ControlJobResponse.class);
     }
