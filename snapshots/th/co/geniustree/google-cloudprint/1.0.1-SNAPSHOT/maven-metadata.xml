@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>th.co.geniustree</groupId>
+  <artifactId>google-cloudprint</artifactId>
+  <version>1.0.1-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20141127.150148</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20141127150148</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0.1-20141127.150148-1</value>
+        <updated>20141127150148</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>

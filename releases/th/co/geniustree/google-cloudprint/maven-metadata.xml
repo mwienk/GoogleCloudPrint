@@ -3,9 +3,11 @@
   <groupId>th.co.geniustree</groupId>
   <artifactId>google-cloudprint</artifactId>
   <versioning>
+    <release>1.0</release>
     <versions>
       <version>1.0-SNAPSHOT</version>
+      <version>1.0</version>
     </versions>
-    <lastUpdated>20141119082009</lastUpdated>
+    <lastUpdated>20141127150305</lastUpdated>
   </versioning>
 </metadata>
