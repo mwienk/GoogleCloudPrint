@@ -5,6 +5,7 @@
 package th.co.geniustree.google.cloudprint.api.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.util.Set;
 
 /**
@@ -29,9 +30,12 @@ public class Job {
     private String title;
     private String errorCode;
     private int numberOfPages;
+    private JsonObject uiState;
+    private JsonObject semanticState;
     //
-    private Gson gson = new Gson();
+    private final Gson GSON = new Gson();
 
+    
     public String getCreateTime() {
         return createTime;
     }
@@ -213,6 +217,15 @@ public class Job {
     }
 
     public String toJson() {
-        return gson.toJson(this);
+        return GSON.toJson(this);
     }
+
+    public JsonObject getUiState() {
+        return uiState;
+    }
+
+    public JsonObject getSemanticState() {
+        return semanticState;
+    }
+
 }
