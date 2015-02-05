@@ -93,7 +93,7 @@ public class GoogleCloudPrint {
         gson = new Gson();
         jobListeners = new ArrayList<JobListener>();
     }
-
+ 
     /**
      * For connect to Google Cloud Print Service and Google Talk for real time
      * job notify<br/><br/>
