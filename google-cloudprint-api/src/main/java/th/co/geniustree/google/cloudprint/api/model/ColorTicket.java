@@ -11,7 +11,7 @@ package th.co.geniustree.google.cloudprint.api.model;
 public class ColorTicket {
 
     private String vendor_id;
-    private String type;
+    private int type;
 
     public String getVendor_id() {
         return vendor_id;
@@ -21,11 +21,11 @@ public class ColorTicket {
         this.vendor_id = vendor_id;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 }
