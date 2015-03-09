@@ -93,7 +93,7 @@ public class GoogleCloudPrint {
         gson = new Gson();
         jobListeners = new ArrayList<JobListener>();
     }
- 
+
     /**
      * For connect to Google Cloud Print Service and Google Talk for real time
      * job notify<br/><br/>
@@ -540,9 +540,24 @@ public class GoogleCloudPrint {
      *
      * @return
      * @throws CloudPrintException
+     *
+     * Monday 9th March 2015 mlarsson: Deprecated in accordance with Googles
+     * documentation:
+     * https://developers.google.com/cloud-print/docs/appInterfaces#printer Use
+     * getPrinterInformationWithStatus instead.
      */
+    @Deprecated
     public PrinterInformationResponse getPrinterInformation(String printerId, PrinterStatus status) throws CloudPrintException {
         return getPrinterInformation(printerId + "&printer_connection_status=" + status);
+    }
+
+    public Printer getPrinterInformationWithStatus(String printerId) throws CloudPrintException {
+        String response = openConnection("/printer?output=json&extra_fields=connectionStatus&use_cdd=true&printerid=" + printerId);
+        List<Printer> printers = gson.fromJson(new StringReader(response), PrinterInformationResponse.class).getPrinters();
+        if (printers.isEmpty()) {
+            throw new CloudPrintException("Printer not found.");
+        }
+        return printers.get(0);
     }
 
     /**
