@@ -35,9 +35,8 @@ public class Job {
     //
     private final Gson GSON = new Gson();
 
-    
-    public String getCreateTime() {
-        return createTime;
+    public long getCreateTime() {
+        return Long.valueOf(createTime);
     }
 
     public void setCreateTime(String createTime) {
@@ -60,8 +59,8 @@ public class Job {
         this.printerName = printerName;
     }
 
-    public String getUpdateTime() {
-        return updateTime;
+    public long getUpdateTime() {
+        return Long.valueOf(updateTime);
     }
 
     public void setUpdateTime(String updateTime) {
@@ -78,7 +77,7 @@ public class Job {
 
     public void setStatus(String jobStatus) {
         this.status = JobStatus.valueOf(jobStatus);
-        if(status == null){
+        if (status == null) {
             status = JobStatus.ERROR;
         }
     }

@@ -368,6 +368,11 @@ public class GoogleCloudPrint {
         String response = openConnection("/jobs?output=json");
         return gson.fromJson(new StringReader(response), JobResponse.class);
     }
+    
+      public JobResponse getJobs(long offset, int limit) throws CloudPrintException {
+        String response = openConnection("/jobs?output=json&offset="+offset+"&limit="+limit);
+        return gson.fromJson(new StringReader(response), JobResponse.class);
+    }
 
     /**
      * <b><a
