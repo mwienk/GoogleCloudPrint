@@ -10,13 +10,13 @@ package th.co.geniustree.google.cloudprint.api.model;
  */
 public class DuplexTicket {
 
-    private String type;
+    private int type;
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 }
